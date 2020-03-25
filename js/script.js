@@ -21,13 +21,19 @@ const onScrollChangeBackGround = () => {
           music.style.opacity = musicRectValue.toString();
         }
 
-        const about = document.getElementById('about');
-        const aboutRect = about.getClientRects()[0];
-        const aboutRectValue = aboutRect.bottom / aboutRect.height;
-        if (aboutRectValue > 1) {
-          about.style.opacity = (2 - aboutRectValue).toString();
+        if (musicRectValue < 0.7) {
+          const live = document.getElementById('live');
+          const liveRect = live.getClientRects()[0];
+          const liveRectValue = liveRect.bottom / liveRect.height;
+
+          if (liveRectValue > 1) {
+            live.style.opacity = (2 - liveRectValue).toString();
+          } else {
+            live.style.opacity = liveRectValue.toString();
+          }
         } else {
-          about.style.opacity = aboutRectValue.toString();
+          const live = document.getElementById('live');
+          live.style.opacity = '';
         }
 
         scrolled = true;
