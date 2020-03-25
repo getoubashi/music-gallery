@@ -1,0 +1,73 @@
+blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Libre Baskerville', serif;
+}
+
+iframe {
+  width: 500px;
+  height: 400px;
+}
+
+.contents-section {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.contents-body {
+  box-sizing: inherit;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 3rem 1.5rem;
+}
+
+.contents-container {
+  position: absolute;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+  height: 80%;
+  left: 0;
+  right: 0;
+}
+
+.section-title {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin-bottom: 1.5rem;
+  font-size: 8rem;
+  font-weight: 600;
+  line-height: 1.125;
+  word-break: break-word;
+  color: white;
+}
+
+/* mobile */
+@media screen and (max-width: 767px), (max-height: 400px) {
+  iframe {
+    width: 250px;
+    height: 225px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
