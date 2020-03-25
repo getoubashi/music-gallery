@@ -60,6 +60,7 @@ iframe {
   text-align: left;
   top: 50%;
   width: 80%;
+  max-width: 800px;
   margin: auto;
   padding: 25px;
   font-size: 15px;
