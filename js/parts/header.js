@@ -1,8 +1,8 @@
 (() => {
   const item1 = 'TOP';
   const item2 = 'MUSIC';
-  const item3 = 'about';
-  const item4 = 'live';
+  const item3 = 'ABOUT';
+  const item4 = 'LIVE';
 
   const menu = `
   <ul id="menu">
