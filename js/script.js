@@ -30,7 +30,10 @@ const onScrollChangeBackGroundImage = () => {
 
         if (musicRectValue < 0) {
           live.style.visibility = 'visible';
-          live.style.opacity = liveRectValue > 1 ? 2 - liveRectValue : liveRectValue;
+          live.style.opacity =
+            liveRect.bottom < liveRect.height ? 1 :
+              liveRectValue > 1 ? 2 - liveRectValue :
+                liveRectValue;
         } else {
           live.style.visibility = 'hidden';
           live.style.opacity = '';
