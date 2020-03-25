@@ -17,7 +17,7 @@
       </a>
     </li>
     <li>
-      <a class="menu-item" href="">
+      <a class="menu-item" href="#live">
         <span>LIVE</span>
       </a>
     </li>

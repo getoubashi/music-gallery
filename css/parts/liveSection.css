@@ -1,4 +1,4 @@
-#about:before {
+#live:before {
   content: '';
   display: block;
   position: fixed;
@@ -9,10 +9,11 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('../../images/02.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('../../images/03.jpg');
 }
 
-#about-contents {
+#live-contents {
+  display: table;
   position: relative;
   letter-spacing: 2px;
   line-height: 2;
@@ -27,7 +28,7 @@
   font-family: "Yu Gothic";
 }
 
-#about-contents P {
+#live-contents P {
   margin: 20px;
 }
 
@@ -37,13 +38,13 @@
 }
 
 @media screen and (max-width: 767px) {
-  #about-contents {
+  #live-contents {
     top: 40%;
   }
 }
 
 @media screen and (max-height: 400px) {
-  #about-contents {
+  #live-contents {
     top: 30%;
   }
 }

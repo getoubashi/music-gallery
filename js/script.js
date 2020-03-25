@@ -13,13 +13,21 @@ const onScrollChangeBackGround = () => {
         top.style.opacity = topRect.bottom / topRect.height;
 
         const music = document.getElementById('music');
-        const discoRect = music.getClientRects()[0];
-        const value = discoRect.bottom / discoRect.height;
-
-        if (value > 1) {
-          music.style.opacity = (2 - value).toString();
+        const musicRect = music.getClientRects()[0];
+        const musicRectValue = musicRect.bottom / musicRect.height;
+        if (musicRectValue > 1) {
+          music.style.opacity = (2 - musicRectValue).toString();
         } else {
-          music.style.opacity = value.toString();
+          music.style.opacity = musicRectValue.toString();
+        }
+
+        const about = document.getElementById('about');
+        const aboutRect = about.getClientRects()[0];
+        const aboutRectValue = aboutRect.bottom / aboutRect.height;
+        if (aboutRectValue > 1) {
+          about.style.opacity = (2 - aboutRectValue).toString();
+        } else {
+          about.style.opacity = aboutRectValue.toString();
         }
 
         scrolled = true;
