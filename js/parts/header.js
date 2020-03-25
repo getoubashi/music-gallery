@@ -1,24 +1,29 @@
 (() => {
+  const item1 = 'TOP';
+  const item2 = 'MUSIC';
+  const item3 = 'about';
+  const item4 = 'live';
+
   const menu = `
   <ul id="menu">
     <li>
       <a class="menu-item" href="#top">
-        <span>TOP</span>
+        <span>${item1}</span>
       </a>
     </li>
     <li>
       <a class="menu-item" href="#music">
-        <span>MUSIC</span>
+        <span>${item2}</span>
       </a>
     </li>
     <li>
       <a class="menu-item" href="#about">
-        <span>ABOUT</span>
+        <span>${item3}</span>
       </a>
     </li>
     <li>
       <a class="menu-item" href="#live">
-        <span>LIVE</span>
+        <span>${item4}</span>
       </a>
     </li>
   </ul>

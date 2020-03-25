@@ -1,9 +1,6 @@
-/**
-* SoundCloudの埋め込みリンク
-*/
-const track = (color, url) => {
+(() => {
   const options =
-    `&color=${color}` +
+    '&color=%23b59d9f' +
     '&auto_play=false' +
     '&buying=false' +
     '&liking=false' +
@@ -18,21 +15,15 @@ const track = (color, url) => {
     '&show_teaser=false' +
     '&visual=false';
 
-  return `
-    <iframe id="sc-widget" class="track" width="500" height="400" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=${url}${options}">
-    </iframe>
-  `;
-}
-
-(() => {
   const music = document.getElementById('music');
   music.insertAdjacentHTML('afterbegin', `
     <div class="contents-body" id="music-body">
       <div class="contents-container">
         <h1 class="section-title">MUSIC</h1>
         <div id="music-contents">
-          ${track('%23b59d9f', 'https://api.soundcloud.com/playlists/971590474')}
+          <iframe id="sc-widget" class="track" width="500" height="400" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/playlists/971590474${options}">
+          </iframe>
           <i class="material-icons is-pulled-left" id="skip-previous">skip_previous</i>
           <i class="material-icons is-pulled-left" id="skip-next">skip_next</i>
         </div>

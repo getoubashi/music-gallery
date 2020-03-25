@@ -37,6 +37,41 @@ iframe {
   right: 0;
 }
 
+.section-title {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin-bottom: 1.5rem;
+  font-size: 8rem;
+  font-weight: 600;
+  line-height: 1.125;
+  word-break: break-word;
+  color: white;
+}
+
+.section-contents {
+  display: table;
+  position: relative;
+  letter-spacing: 2px;
+  line-height: 2;
+  text-align: left;
+  top: 50%;
+  width: 80%;
+  margin: auto;
+  padding: 25px;
+  font-size: 15px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Yu Gothic";
+}
+
+.section-contents P {
+  margin: 20px;
+}
+
 .cell {
   display: table-cell;
   padding: 15px 20px 15px 20px;
@@ -57,21 +92,6 @@ iframe {
   opacity: 0.3;
 }
 
-.section-title {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  left: 0;
-  right: 0;
-  top: 10%;
-  margin-bottom: 1.5rem;
-  font-size: 8rem;
-  font-weight: 600;
-  line-height: 1.125;
-  word-break: break-word;
-  color: white;
-}
-
 /* mobile */
 @media screen and (max-width: 767px), (max-height: 400px) {
   iframe {
@@ -79,9 +99,13 @@ iframe {
     height: 225px;
   }
 
+  .section-contents {
+    top: 40%;
+  }
+
   .cell {
     display: block;
-    padding: 0px 20px 5px 20px;
+    padding: 5px 20px 5px 20px;
   }
 }
 

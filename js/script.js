@@ -1,38 +1,38 @@
 /**
 * スクロール位置で背景を変える
 */
-const onScrollChangeBackGround = () => {
+const onScrollChangeBackGroundImage = () => {
   let scrolled = true;
+
   window.addEventListener('scroll', () => {
     if (scrolled) {
       scrolled = false;
 
       window.setTimeout(function () {
-        const top = document.getElementById('top');
-        const topRect = top.getClientRects()[0];
-        top.style.opacity = topRect.bottom / topRect.height;
-
         const music = document.getElementById('music');
         const musicRect = music.getClientRects()[0];
         const musicRectValue = musicRect.bottom / musicRect.height;
+
         if (musicRectValue > 1) {
-          music.style.opacity = (2 - musicRectValue).toString();
+          music.style.opacity = 2 - musicRectValue;
         } else {
-          music.style.opacity = musicRectValue.toString();
+          music.style.opacity = musicRectValue;
         }
 
-        if (musicRectValue < 0.7) {
-          const live = document.getElementById('live');
-          const liveRect = live.getClientRects()[0];
-          const liveRectValue = liveRect.bottom / liveRect.height;
+        const top = document.getElementById('top');
+        const topRect = top.getClientRects()[0];
+        const aboutRect = document.getElementById('about').getClientRects()[0];
+        top.style.opacity = aboutRect.bottom / aboutRect.height <= 2 ? topRect.bottom / topRect.height : '';
 
-          if (liveRectValue > 1) {
-            live.style.opacity = (2 - liveRectValue).toString();
-          } else {
-            live.style.opacity = liveRectValue.toString();
-          }
+        const live = document.getElementById('live');
+        const liveRect = live.getClientRects()[0];
+        const liveRectValue = liveRect.bottom / liveRect.height;
+
+        if (musicRectValue < 0) {
+          live.style.visibility = 'visible';
+          live.style.opacity = liveRectValue > 1 ? 2 - liveRectValue : liveRectValue;
         } else {
-          const live = document.getElementById('live');
+          live.style.visibility = 'hidden';
           live.style.opacity = '';
         }
 
@@ -43,44 +43,22 @@ const onScrollChangeBackGround = () => {
 }
 
 /**
-* 背景画像を設定する
-*/
-const setMusicSectionBackGround = (widget) => {
-  widget.getCurrentSound((callback) => {
-    const music = document.getElementById('music');
-
-    for (const child of music.children) if (child.tagName === 'STYLE') music.removeChild(child);
-
-    music.insertAdjacentHTML('afterbegin', `
-      <style>
-        #music:before {
-          background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('images/trackImage/${trackList[callback.title]}.jpg');
-        }
-      </style>
-    `);
-  });
-}
-
-/**
 * SoundCloudWidget の操作
 */
 const SCWidgetController = () => {
-  const widgetIframe = document.getElementById('sc-widget');
-  const widget = SC.Widget(widgetIframe);
+  const widget = SC.Widget(document.getElementById('sc-widget'));
 
   widget.bind(SC.Widget.Events.READY, () => {
     console.log('ロード完了🙆‍♂️');
     widget.setVolume(50);
 
-    const previousIcon = document.getElementById('skip-previous');
-    previousIcon.addEventListener('click', () => {
+    document.getElementById('skip-previous').addEventListener('click', () => {
       widget.seekTo(0);
       widget.prev();
       widget.pause();
     });
 
-    const nextIcon = document.getElementById('skip-next');
-    nextIcon.addEventListener('click', () => {
+    document.getElementById('skip-next').addEventListener('click', () => {
       widget.seekTo(0);
       widget.next();
       widget.pause();
@@ -92,36 +70,40 @@ const SCWidgetController = () => {
   });
 
   widget.bind(SC.Widget.Events.PLAY, () => {
-    setMusicSectionBackGround(widget);
-  });
-}
+    widget.getCurrentSound((callback) => {
+      const music = document.getElementById('music');
 
-/**
-* active クラスを切り替え
-*/
-const switchActive = (menuBtn, menuContent) => {
-  menuBtn.classList.toggle('active');
-  menuContent.classList.toggle('active');
+      for (const child of music.children) if (child.tagName === 'STYLE') music.removeChild(child);
+
+      music.insertAdjacentHTML('afterbegin', `
+      <style>
+        #music:before {
+          background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('images/trackImage/${trackList[callback.title]}.jpg');
+        }
+      </style>
+    `);
+    });
+  });
 }
 
 /**
 * ナビバーのイベントを設定する
 */
 const setNavbarEvent = () => {
+  const switchActive = (menuBtn, menuContent) => {
+    menuBtn.classList.toggle('active');
+    menuContent.classList.toggle('active');
+  }
+
   const menuBtn = document.getElementById('menu_btn');
   const menuContent = document.getElementById('menu_content');
-
-  menuBtn.addEventListener('click', () => {
-    switchActive(menuBtn, menuContent);
-  });
+  menuBtn.addEventListener('click', () => switchActive(menuBtn, menuContent));
 
   for (const menuItem of document.getElementsByClassName('menu-item')) {
-    menuItem.addEventListener('click', () => {
-      switchActive(menuBtn, menuContent);
-    });
+    menuItem.addEventListener('click', () => switchActive(menuBtn, menuContent));
   }
 }
 
 setNavbarEvent();
-onScrollChangeBackGround();
+onScrollChangeBackGroundImage();
 SCWidgetController();
