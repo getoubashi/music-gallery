@@ -35,11 +35,11 @@
       </div>
     </nav>
     <div id="menu_btn">
-    <div class="wrap">
-      <span></span>
-      <span></span>
-      <span></span>
+      <div class="wrap">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-  </div>
   `);
 })();
