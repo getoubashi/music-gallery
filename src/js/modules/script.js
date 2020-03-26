@@ -24,12 +24,7 @@ export default class Top {
           const music = document.getElementById('music');
           const musicRect = music.getClientRects()[0];
           const musicRectValue = musicRect.bottom / musicRect.height;
-
-          if (musicRectValue > 1) {
-            music.style.opacity = 2 - musicRectValue;
-          } else {
-            music.style.opacity = musicRectValue;
-          }
+          music.style.opacity = musicRectValue > 1 ? 2 - musicRectValue : musicRectValue;
 
           const top = document.getElementById('top');
           const topRect = top.getClientRects()[0];
@@ -99,17 +94,18 @@ export default class Top {
 
   /** ナビバーのイベントを設定する */
   setNavbarEvent() {
-    const switchActive = (menuBtn, menuContent) => {
+    const menuBtn = document.getElementById('menu_btn');
+    const menuContent = document.getElementById('menu_content');
+
+    const switchActive = () => {
       menuBtn.classList.toggle('active');
       menuContent.classList.toggle('active');
     }
 
-    const menuBtn = document.getElementById('menu_btn');
-    const menuContent = document.getElementById('menu_content');
-    menuBtn.addEventListener('click', () => switchActive(menuBtn, menuContent));
+    menuBtn.addEventListener('click', () => switchActive());
 
     for (const menuItem of document.getElementsByClassName('menu-item')) {
-      menuItem.addEventListener('click', () => switchActive(menuBtn, menuContent));
+      menuItem.addEventListener('click', () => switchActive());
     }
   }
 }

@@ -30,7 +30,7 @@ export default class Header {
     `;
   }
 
-  /** ヘッダを生成 */
+  /** header を生成 */
   createHeader() {
     const header = document.getElementById('header');
     header.insertAdjacentHTML('afterbegin', `

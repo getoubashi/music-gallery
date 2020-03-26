@@ -6,6 +6,7 @@ export default class AboutSection {
   `;
   }
 
+  /** about-section を生成 */
   createAboutSection() {
     const about = document.getElementById('about');
     about.insertAdjacentHTML('afterbegin', `

@@ -17,6 +17,7 @@ export default class Top {
       '&visual=false';
   }
 
+  /** music-section を生成 */
   createMusicSection() {
     const music = document.getElementById('music');
     music.insertAdjacentHTML('afterbegin', `

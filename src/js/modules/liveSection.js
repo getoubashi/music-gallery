@@ -12,6 +12,7 @@ export default class AboutSection {
     };
   }
 
+  /** live-section を生成 */
   createLiveSection() {
     const live = document.getElementById('live');
     live.insertAdjacentHTML('afterbegin', `
