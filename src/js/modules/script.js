@@ -84,7 +84,10 @@ export default class Top {
         music.insertAdjacentHTML('afterbegin', `
           <style>
             #music:before {
-              background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('images/trackImage/${this.trackList[callback.title]}.jpg');
+              background-image:
+                linear-gradient(rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0)),
+                url('images/trackImage/${this.trackList[callback.title]}.jpg');
             }
           </style>
         `);

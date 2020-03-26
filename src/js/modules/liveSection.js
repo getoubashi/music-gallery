@@ -2,13 +2,13 @@ export default class AboutSection {
   constructor() {
     this.liveInfomation = {
       DATE: '日付',
-      dateAndTimeDetail: '2020年5月31日',
+      dateDetail: '2020年5月31日',
       VENUE: '会場',
       venueDetail: '池袋RED-Zone',
       TIME: '時間',
       timeDetail: 'OPEN 18:00 / START 18:30',
       TICKET: 'チケット',
-      ticketDetail: '¥500（ドリンク別/税込み）',
+      ticketDetail: '¥500（ドリンク別/税込み）'
     };
   }
 
@@ -22,7 +22,7 @@ export default class AboutSection {
           <div class="section-contents">
             <div class="row">
               <div class="cell">${this.liveInfomation.DATE}</div>
-              <div class="cell">${this.liveInfomation.dateAndTimeDetail}</div>
+              <div class="cell">${this.liveInfomation.dateDetail}</div>
             </div>
             <div class="row">
               <div class="cell">${this.liveInfomation.VENUE}</div>

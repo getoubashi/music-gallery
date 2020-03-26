@@ -1,33 +1,23 @@
 export default class Header {
   constructor() {
-    this.item1 = 'TOP';
-    this.item2 = 'MUSIC';
-    this.item3 = 'ABOUT';
-    this.item4 = 'LIVE';
-    this.menu = `
-      <ul id="menu">
-        <li>
-          <a class="menu-item" href="#top">
-            <span>${this.item1}</span>
-          </a>
-        </li>
-        <li>
-          <a class="menu-item" href="#music">
-            <span>${this.item2}</span>
-          </a>
-        </li>
-        <li>
-          <a class="menu-item" href="#about">
-            <span>${this.item3}</span>
-          </a>
-        </li>
-        <li>
-          <a class="menu-item" href="#live">
-            <span>${this.item4}</span>
-          </a>
-        </li>
-      </ul>
-    `;
+    this.menuInfomation = {
+      menu1: {
+        id: '#top',
+        name: 'TOP'
+      },
+      menu2: {
+        id: '#music',
+        name: 'MUSIC'
+      },
+      menu3: {
+        id: '#about',
+        name: 'ABOUT'
+      },
+      menu4: {
+        id: '#live',
+        name: 'LIVE'
+      }
+    }
   }
 
   /** header を生成 */
@@ -38,7 +28,28 @@ export default class Header {
       <div class="menu_bg"></div>
       <div class="menu_wrapper">
         <div class="inner">
-          ${this.menu}
+          <ul id="menu">
+            <li>
+              <a class="menu-item" href="${this.menuInfomation.menu1.id}">
+                <span>${this.menuInfomation.menu1.name}</span>
+              </a>
+            </li>
+            <li>
+              <a class="menu-item" href="${this.menuInfomation.menu2.id}">
+                <span>${this.menuInfomation.menu2.name}</span>
+              </a>
+            </li>
+            <li>
+              <a class="menu-item" href="${this.menuInfomation.menu3.id}">
+                <span>${this.menuInfomation.menu3.name}</span>
+              </a>
+            </li>
+            <li>
+              <a class="menu-item" href="${this.menuInfomation.menu4.id}">
+                <span>${this.menuInfomation.menu4.name}</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
