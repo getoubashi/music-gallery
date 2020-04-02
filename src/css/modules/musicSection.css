@@ -27,10 +27,10 @@
 
 #skip-previous, #skip-next {
   position: absolute;
-  color: white;
-  font-size: 200px;
   cursor: pointer;
   bottom: 30%;
+  color: white;
+  font-size: 200px;
 }
 
 #skip-previous {
@@ -61,5 +61,12 @@
 
   #music-contents {
     top: 30%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #skip-previous, #skip-next {
+    bottom: 40%;
+    font-size: 40px;
   }
 }

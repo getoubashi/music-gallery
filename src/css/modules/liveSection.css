@@ -11,10 +11,3 @@
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('images/background-image03.jpg');
 }
-
-/* mobile */
-@media screen and (max-width: 767px), (max-height: 400px) {
-  .section-contents {
-    top: 40%;
-  }
-}
