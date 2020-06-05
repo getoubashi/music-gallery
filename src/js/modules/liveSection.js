@@ -2,13 +2,13 @@ export default class AboutSection {
   constructor() {
     this.liveInfomation = {
       DATE: '日付',
-      dateDetail: '2020年5月31日',
+      dateDetail: '',
       VENUE: '会場',
-      venueDetail: '池袋RED-Zone',
+      venueDetail: '',
       TIME: '時間',
-      timeDetail: 'OPEN 18:00 / START 18:30',
+      timeDetail: '',
       TICKET: 'チケット',
-      ticketDetail: '¥500（ドリンク別/税込み）'
+      ticketDetail: ''
     };
   }
 
