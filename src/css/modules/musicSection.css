@@ -30,6 +30,7 @@
   cursor: pointer;
   bottom: 30%;
   color: white;
+  background-color: rgba(0,0,0,0.5);
   font-size: 200px;
 }
 
